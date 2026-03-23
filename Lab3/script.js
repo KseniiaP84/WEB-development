@@ -19,7 +19,7 @@
 
 (function () {
 
-  var names = ["Anna", "Mark", "Julia", "Tom", "Lara"];
+  var names = ["Anna", "Mark", "Julia", "Tom", "Lara", "Sofiia", "Lisa"];
 
   console.log("Rule: if name ends with 'a' → Goodbye");
 
