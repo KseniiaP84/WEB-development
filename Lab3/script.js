@@ -21,7 +21,7 @@
 
   var names = ["Anna", "Mark", "Julia", "Tom", "Lara", "Sofiia", "Lisa"];
 
-  console.log("Rule: if name ends with 'a' → Goodbye");
+  console.log("Rule: if name ends with 'a' - Goodbye");
 
   for (var i = 0; i < names.length; i++) {
 
