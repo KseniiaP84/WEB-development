@@ -15,3 +15,24 @@
   }
 
 })();
+
+
+(function () {
+
+  var names = ["Anna", "Mark", "Julia", "Tom", "Lara"];
+
+  console.log("Rule: if name ends with 'a' → Goodbye");
+
+  for (var i = 0; i < names.length; i++) {
+
+    var lastLetter = names[i].charAt(names[i].length - 1).toLowerCase();
+
+    if (lastLetter === 'a') {
+      byeSpeaker.speak(names[i]);
+    } else {
+      helloSpeaker.speak(names[i]);
+    }
+
+  }
+
+})();
