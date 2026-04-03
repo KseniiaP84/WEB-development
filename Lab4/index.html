@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Лабораторна робота №4</h1>
+  <h2>Розробка бібліотек у JavaScript</h2>
 
+  <button onclick="runDemo()">Запустити демонстрацію</button>
+
+  <h3>Результати</h3>
+  <pre id="output"></pre>
+
+  <script src="sortLib.js"></script>
+  <script>
+    function generateDenseArray(length) {
+      const arr = [];
+      for (let i = 0; i < length; i++) {
+        arr.push(Math.floor(Math.random() * 1000));
+      }
+      return arr;
+    }
+
+    function generateSparseArray(length) {
+      const arr = [];
+      for (let i = 0; i < length; i++) {
+        if (i % 10 === 0 || i % 17 === 0) {
+          arr[i] = undefined;
+        } else {
+          arr[i] = Math.floor(Math.random() * 1000);
+        }
+      }
+      return arr;
+    }
+
+    function runDemo() {
+      const output = document.getElementById("output");
+      output.textContent = "";
+
+      const denseArray = generateDenseArray(100);
+      const sparseArray = generateSparseArray(100);
+
+      output.textContent += "========== НЕРОЗРІДЖЕНИЙ МАСИВ ==========\n\n";
+      SortLib.bubbleSort(denseArray, true, "output");
+      SortLib.selectionSort(denseArray, true, "output");
+      SortLib.insertionSort(denseArray, true, "output");
+      SortLib.shellSort(denseArray, true, "output");
+      SortLib.quickSort(denseArray, true, "output");
+
+      output.textContent += "\n========== РОЗРІДЖЕНИЙ МАСИВ ==========\n\n";
+      SortLib.bubbleSort(sparseArray, true, "output");
+      SortLib.selectionSort(sparseArray, false, "output");
+      SortLib.insertionSort(sparseArray, true, "output");
+      SortLib.shellSort(sparseArray, false, "output");
+      SortLib.quickSort(sparseArray, true, "output");
+    }
+  </script>
+</body>
+</html>
