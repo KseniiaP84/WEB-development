@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pixel Hunt</title>
+
+    <style>
+      body {
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      #gameArea {
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 70vh;
+        position: relative;
+      }
+
+      #square {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Pixel Hunt</h1>
+
+    <label>Choose difficulty:</label>
+    <select id="difficulty">
+      <option value="">--Please choose an option--</option>
+      <option value="3">Lazy</option>
+      <option value="2">Normal</option>
+      <option value="1">Catch me if you can</option>
+    </select>
+
+    <label>Choose color:</label>
+    <select id="color">
+      <option value="">--Please choose an option--</option>
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+    </select>
+
+    <button id="startBtn">Start</button>
+
+    <p>score: <span id="score">0</span></p>
+    <p>time left for click: <span id="time">0</span></p>
+
+    <div id="gameArea"></div>
+
+    <script>
+      let score = 0;
+      let time = 0;
+      let timer;
+      let square;
+      let speed;
+
+      document.getElementById("startBtn").addEventListener("click", startGame);
+
+      function startGame() {
+        let oldSquare = document.getElementById("square");
+        if (oldSquare) {
+          oldSquare.remove();
+        }
+
+        let difficulty = document.getElementById("difficulty").value;
+        let color = document.getElementById("color").value;
+
+        if (difficulty === "" || color === "") {
+          alert("Choose options!");
+          return;
+        }
+
+        speed = Number(difficulty);
+
+        score = 0;
+        document.getElementById("score").textContent = score;
+
+        createSquare(color);
+        startRound();
+      }
+
+      function createSquare(color) {
+        let old = document.getElementById("square");
+        if (old) old.remove();
+
+        square = document.createElement("div");
+        square.id = "square";
+        square.style.backgroundColor = color;
+
+        document.getElementById("gameArea").appendChild(square);
+
+        square.addEventListener("click", function () {
+          score++;
+          document.getElementById("score").textContent = score;
+          moveSquare();
+          resetTimer();
+        });
+      }
+
+      function moveSquare() {
+        let gameArea = document.getElementById("gameArea");
+
+        let maxX = gameArea.clientWidth - 50;
+        let maxY = gameArea.clientHeight - 20;
+
+        let x = Math.random() * maxX;
+        let y = Math.random() * maxY;
+
+        square.style.left = x + "px";
+        square.style.top = y + "px";
+      }
+
+      function startRound() {
+        moveSquare();
+        resetTimer();
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        time = speed;
+        document.getElementById("time").textContent = time;
+
+        timer = setInterval(function () {
+          time -= 0.1;
+          document.getElementById("time").textContent = time.toFixed(1);
+
+          if (time <= 0) {
+            clearInterval(timer);
+            square.remove();
+            alert("Game over! Your score is " + score);
+          }
+        }, 100);
+      }
+    </script>
+  </body>
+</html>
 
