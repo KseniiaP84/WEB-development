@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<title>Lights Out</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lights Out</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
+    <h1>Lights Out</h1>
 
-<h1>Lights Out</h1>
+    <select id="levelSelect"></select>
+    <button id="startBtn">Start</button>
 
-<select id="levelSelect"></select>
-<button id="startBtn">Start</button>
+    <p>Steps: <span id="steps">0</span></p>
+    <p>Min steps: <span id="minSteps">0</span></p>
 
-<p>Steps: <span id="steps">0</span></p>
+    <div id="grid"></div>
 
-<div id="grid"></div>
-
-<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
