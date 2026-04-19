@@ -31,6 +31,9 @@ startBtn.addEventListener("click", startGame);
 function startGame() {
     let selected = levelSelect.value;
 
+let min = levels[selected].minSteps;
+document.getElementById("minSteps").textContent = min;
+
     if (selected === "") {
         alert("Choose level!");
         return;
@@ -94,5 +97,14 @@ function checkWin() {
         }
     }
 
-    alert("You win in " + steps + " steps!");
+    let selected = levelSelect.value;
+    let min = levels[selected].minSteps;
+
+    if (steps === min) {
+        alert("Perfect! You solved it in " + steps + " steps!");
+    } else if (steps < min) {
+        alert("Wow! You beat the minimum?! Steps: " + steps);
+    } else {
+        alert("You win in " + steps + " steps. Minimum is " + min);
+    }
 }
