@@ -60,14 +60,22 @@ function render() {
                 cell.classList.add("on");
             }
 
-            cell.addEventListener("click", function () {
-                toggle(i, j);
-                steps++;
-                stepsSpan.textContent = steps;
+           cell.addEventListener("click", function () {
+    let selected = levelSelect.value;
+    let min = levels[selected].minSteps;
 
-                render();
-                checkWin();
-            });
+    if (steps >= min) {
+        alert("You used all allowed steps!");
+        return;
+    }
+
+    toggle(i, j);
+    steps++;
+    stepsSpan.textContent = steps;
+
+    render();
+    checkWin();
+});
 
             gridDiv.appendChild(cell);
         }
