@@ -1,0 +1,6 @@
+[
+  {"id": 1, "name": "Телефон", "shortname": "phone", "description": "Samsung", "price": 10000},
+  {"id": 2, "name": "Ноутбук", "shortname": "laptop", "description": "Lenovo", "price": 25000},
+  {"id": 3, "name": "Навушники", "shortname": "headphones", "description": "Бездротові", "price": 2000},
+  {"id": 4, "name": "Планшет", "shortname": "tablet", "description": "Asus", "price": 8000}
+]
