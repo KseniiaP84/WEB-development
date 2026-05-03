@@ -1,0 +1,6 @@
+[
+  {"id": 1, "name": "1984", "shortname": "1984", "description": "Роман Орвелла", "price": 300},
+  {"id": 2, "name": "Маленький принц", "shortname": "prince", "description": "Класика", "price": 250},
+  {"id": 3, "name": "Гаррі Поттер", "shortname": "hp", "description": "Фентезі", "price": 400},
+  {"id": 4, "name": "Алхімік", "shortname": "alchemist", "description": "Філософський роман", "price": 350}
+]
